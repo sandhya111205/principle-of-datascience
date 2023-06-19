@@ -1,0 +1,86 @@
+
+from scipy import stats
+y=(1,2,3,4,5)
+result = scipy.stats.describe(y, bias=False)
+result
+DescribeResult(nobs=5, minmax=(1, 5), mean=3.0, variance=2.5, skewness=0.0, kurtosis=-1.2000000000000004)
+#min
+result.minmax[0]
+1
+#max
+result.minmax[1]
+5
+result.nobs
+5
+result.mean
+3.0
+result.variance
+2.5
+result.kurtosis
+-1.2000000000000004
+result.skewness
+0.0
+import pandas as pd
+z=[1,2,3,4,5]
+df=pd.DataFrame(z)
+res=df.describe()
+res.loc [ : ]
+0
+count	5.000000
+mean	3.000000
+std	1.581139
+min	1.000000
+25%	2.000000
+50%	3.000000
+75%	4.000000
+max	5.000000
+res.loc[['std']]
+0
+std	1.581139
+res.loc[['75%']]
+0
+75%	4.0
+#correlation
+import numpy as np
+import pandas as pd
+x = list(range(-10, 11))
+y = [0, 2, 2, 2, 2, 3, 3, 6, 7, 4, 7, 6, 6, 9, 4,
+5, 5, 10, 11, 12, 14]
+x_, y_ = np.array(x), np.array(y)
+x__, y__ =pd.Series(x_), pd.Series(y_)
+x__
+0    -10
+1     -9
+2     -8
+3     -7
+4     -6
+5     -5
+6     -4
+7     -3
+8     -2
+9     -1
+10     0
+11     1
+12     2
+13     3
+14     4
+15     5
+16     6
+17     7
+18     8
+19     9
+20    10
+dtype: int32
+#covariance
+n = len(x)
+mean_x= sum(x) / n
+mean_y =sum(y) / n
+cov_xy = (sum((x[k] - mean_x) * (y[k] - mean_y) for k in range(n))/ (n - 1))
+cov_xy
+19.95
+cov_matrix = np.cov(x_, y_)
+cov_matrix
+array([[38.5       , 19.95      ],
+       [19.95      , 13.91428571]])
+ 
+ 
